@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="两张表汇总可以用学术网络检验的传播理论，以及现有的引文、方法、主张和实证数据集。">
+  <title>传播理论与科研数据集 · Communication4AI</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16182a;
+      --muted: #52586b;
+      --line: #dfe1e9;
+      --sheet: #fff;
+      --canvas: #f6f7fa;
+      --accent: #4834ab;
+      --accent-light: #ede9ff;
+      --night: #211b42;
+      --radius: 14px;
+      font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      font-size: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6.4rem; }
+    body { margin: 0; color: var(--ink); background: var(--canvas); }
+    a { color: var(--accent); text-underline-offset: .18em; }
+    a:hover { color: #2c1c83; }
+    button, input, select { font: inherit; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 3px solid #806bea; outline-offset: 3px; }
+    .wrap { width: min(100% - 3.5rem, 74rem); margin-inline: auto; }
+    .skip { position: absolute; top: .65rem; left: 1rem; background: white; z-index: 10; padding: .6rem; transform: translateY(-200%); }
+    .skip:focus { transform: none; }
+    .top { position: sticky; top: 0; z-index: 5; background: var(--sheet); border-bottom: 1px solid var(--line); }
+    .top-inner { min-height: 4rem; display: flex; justify-content: space-between; align-items: center; gap: .85rem; }
+    .wordmark { display: inline-flex; align-items: center; gap: .7rem; color: var(--ink); text-decoration: none; font-weight: 770; letter-spacing: -.03em; }
+    .mark { width: 1.17rem; height: 1.17rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: .13rem; flex: none; }
+    .mark span { border-radius: 2px; background: var(--accent); }
+    .mark span:last-child { opacity: .43; }
+    .nav { display: flex; gap: .35rem; }
+    .nav a { padding: .46rem .64rem; border-radius: 6px; font-size: .88rem; font-weight: 650; white-space: nowrap; color: var(--muted); text-decoration: none; }
+    .nav a:hover { background: var(--accent-light); color: var(--accent); }
+    .hero { background: var(--night); color: #fff; }
+    .hero-inner { min-height: 13.2rem; padding: 2.7rem 0 2.75rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; overflow: hidden; }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: clamp(2rem, 4.8vw, 3.625rem); letter-spacing: -.055em; font-weight: 800; line-height: 1.12; }
+    .hero p { max-width: 40rem; margin-top: .95rem; color: #e1dbf5; font-size: 1.025rem; line-height: 1.72; }
+    .motif { width: 11.4rem; flex: 0 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: .37rem; transform: rotate(-9deg); opacity: .88; }
+    .motif i { aspect-ratio: 1; border: 1px solid #655a8b; border-radius: 3px; }
+    .motif i:nth-child(4n + 2) { background: #453972; }
+    .motif i:nth-child(7n + 4) { background: #ad9cf2; border-color: #ad9cf2; }
+    .motif i:nth-child(6n + 3) { background: #7463aa; }
+    main { padding-block: 1.5rem 3rem; }
+    .toolbar { display: flex; align-items: flex-end; gap: 1rem; justify-content: space-between; padding: .15rem 0 1.6rem; border-bottom: 1px solid var(--line); margin-bottom: 1.7rem; }
+    .search-group { flex: 0 1 26rem; }
+    .field-label { display: block; font-size: .86rem; font-weight: 740; margin-bottom: .38rem; }
+    .search-box { display: flex; align-items: center; min-height: 2.85rem; gap: .45rem; background: white; border: 1px solid #cfd1dc; border-radius: 8px; padding-inline: .8rem; }
+    .search-box:focus-within { border-color: #836bea; outline: 2px solid var(--accent-light); }
+    .search-box input { min-width: 0; flex: 1; border: 0; background: transparent; color: var(--ink); padding-block: .55rem; font-size: .94rem; }
+    .search-box input:focus { outline: none; }
+    .search-box input::placeholder { color: #73778a; }
+    .search-box input::-webkit-search-cancel-button { display: none; }
+    .search-icon { width: .74rem; height: .74rem; border: 1.7px solid #62677b; border-radius: 50%; display: inline-block; position: relative; margin-inline: .1rem .35rem; flex: none; }
+    .search-icon::after { content: ""; position: absolute; height: 1.6px; width: .34rem; background: #62677b; right: -.28rem; bottom: -.12rem; transform: rotate(46deg); }
+    .reset { border: 0; background: transparent; color: var(--accent); padding: .25rem .1rem; font-size: .84rem; cursor: pointer; }
+    .date { color: var(--muted); font-size: .85rem; padding-bottom: .67rem; white-space: nowrap; }
+    .section + .section { margin-top: 2.45rem; }
+    .section-top { margin-bottom: .9rem; display: flex; justify-content: space-between; align-items: end; gap: .8rem; }
+    .section-title { display: flex; align-items: center; gap: .62rem; }
+    .section-title::before { content: ""; width: .25rem; height: 1.28rem; border-radius: 2px; background: var(--accent); }
+    h2 { font-size: clamp(1.32rem, 3.8vw, 1.68rem); line-height: 1.3; letter-spacing: -.035em; }
+    .section p { margin-top: .38rem; color: var(--muted); line-height: 1.55; font-size: .9rem; }
+    .section-actions { display: flex; align-items: center; gap: .7rem; flex: none; }
+    .count { font-size: .875rem; color: var(--muted); white-space: nowrap; min-width: 2.5em; }
+    .selector { position: relative; }
+    .selector::after { content: ""; position: absolute; display: block; width: .38rem; height: .38rem; border-bottom: 1.5px solid var(--muted); border-right: 1.5px solid var(--muted); right: .8rem; top: .87rem; transform: rotate(45deg); pointer-events: none; }
+    .selector select { appearance: none; border: 1px solid #cfd1dc; background: white; color: var(--ink); border-radius: 7px; min-height: 2.25rem; padding: .4rem 1.9rem .4rem .63rem; font-size: .875rem; cursor: pointer; }
+    .frame { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 3px 6px #25243f06; }
+    table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+    .theory col:nth-child(1) { width: 26%; }
+    .theory col:nth-child(2) { width: 48%; }
+    .theory col:nth-child(3) { width: 26%; }
+    .data col:nth-child(1) { width: 23%; }
+    .data col:nth-child(2) { width: 14%; }
+    .data col:nth-child(3) { width: 31%; }
+    .data col:nth-child(4) { width: 32%; }
+    thead { background: #eeedf5; color: #3b3751; }
+    th, td { padding: .86rem 1.08rem; text-align: left; vertical-align: top; }
+    thead th { font-weight: 740; font-size: .875rem; }
+    tbody tr + tr { border-top: 1px solid #e8e9ef; }
+    tbody tr:nth-child(even) { background: #fbfbfd; }
+    tbody tr:hover, tbody tr:target { background: #f5f1ff; }
+    tbody tr:target { box-shadow: inset 3px 0 var(--accent); }
+    tbody th { font-weight: 760; }
+    tbody th, tbody td { font-size: .94rem; line-height: 1.62; overflow-wrap: anywhere; }
+    .row-name { display: block; line-height: 1.45; font-size: 1rem; }
+    .row-name a { text-decoration: none; color: var(--ink); }
+    .row-name a:hover { color: var(--accent); text-decoration: underline; }
+    .meta { display: block; color: var(--muted); margin-top: .22rem; font-size: .825rem; font-weight: 500; line-height: 1.45; }
+    .badge { display: inline-block; max-width: 100%; padding: .17rem .5rem; background: var(--accent-light); color: #3e2b8f; font-size: .825rem; font-weight: 710; border-radius: 5px; white-space: nowrap; }
+    .badge[data-layer="论文引文"] { background: #e6efff; color: #254e88; }
+    .badge[data-layer="科学主张"] { background: #e9f0e5; color: #315c38; }
+    .badge[data-layer="实证证据"] { background: #ffeedd; color: #784519; }
+    .badge[data-layer="理论与概念"] { background: #f9e7f3; color: #77426a; }
+    .platform { display: flex; align-items: baseline; flex-wrap: wrap; gap: .25rem .7rem; margin-top: .34rem; }
+    .platform a, .meta a { font-size: .865rem; }
+    .pairs { display: flex; flex-wrap: wrap; align-items: start; gap: .3rem; }
+    .pair { padding: .14rem .48rem; border: 1px solid #ded5fa; border-radius: 5px; background: #f7f4ff; color: #402a97; text-decoration: none; line-height: 1.52; font-weight: 650; font-size: .84rem; }
+    .pair:hover { background: #eae3ff; }
+    .empty { padding: 1.3rem; color: var(--muted); text-align: center; }
+    @media (max-width: 720px) {
+      .wrap { width: calc(100% - 2rem); }
+      .top-inner { min-height: 3.55rem; }
+      .wordmark { gap: .42rem; font-size: .94rem; }
+      .mark { width: 1rem; height: 1rem; }
+      .nav { gap: 0; }
+      .nav a { font-size: .82rem; padding: .36rem .35rem; }
+      .hero-inner { min-height: auto; padding-block: 2rem 2.05rem; }
+      .hero p { font-size: .94rem; }
+      .motif { display: none; }
+      main { padding-top: .85rem; }
+      .toolbar { align-items: start; flex-direction: column; gap: .8rem; margin-bottom: 1.3rem; padding-bottom: .8rem; }
+      .search-group { width: 100%; flex-basis: auto; }
+      .date { padding-bottom: 0; }
+      .section-top { flex-wrap: wrap; align-items: start; }
+      .section p { font-size: .875rem; }
+      .section-actions { gap: .54rem; }
+      table, tbody, tbody tr, tbody th, tbody td { display: block; }
+      colgroup { display: none; }
+      thead { position: absolute; clip-path: inset(50%); inline-size: 1px; block-size: 1px; overflow: hidden; }
+      tbody tr { padding: .85rem .93rem .92rem; }
+      tbody th, tbody td { padding: 0; }
+      tbody th { padding-bottom: .48rem; }
+      tbody td { margin-top: .36rem; }
+      tbody td[data-label]::before { content: attr(data-label); display: block; color: #48455b; font-size: .8rem; font-weight: 730; }
+      .data tbody td:first-of-type { margin-top: 0; }
+      .data tbody td:first-of-type::before { display: none; }
+      .section + .section { margin-top: 1.85rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到清单</a>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="wordmark" href="https://github.com/brighterr/communication4ai">
+        <span class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>Communication4AI
+      </a>
+      <nav class="nav" aria-label="清单导航"><a href="#theories">理论清单</a><a href="#datasets">数据集清单</a></nav>
+    </div>
+  </header>
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div><h1>传播理论与科研数据集</h1><p>查找可以在学术网络上检验的传播理论，以及已经发布的引文、方法、概念、主张和证据数据。</p></div>
+      <span class="motif" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </div>
+  <main id="main" class="wrap">
+    <div class="toolbar">
+      <div class="search-group">
+        <label for="search" class="field-label">搜索两张表</label>
+        <div class="search-box"><span class="search-icon" aria-hidden="true"></span><input type="search" id="search" placeholder="例如：两级传播、Intern-Atlas、主张"><button id="reset" class="reset" type="button" hidden>清除</button></div>
+      </div>
+      <time class="date" datetime="2026-11-23">整理于 2026 年 11 月 23 日</time>
+    </div>
+    <section class="section" id="theories" aria-labelledby="theory-title">
+      <div class="section-top">
+        <div><h2 class="section-title" id="theory-title">可尝试的理论</h2><p>每一项都对应一个图结构和一个可以检验的问题。</p></div>
+        <span class="count" id="theory-count" role="status"></span>
+      </div>
+      <div class="frame">
+        <table class="theory" role="table" aria-labelledby="theory-title">
+          <colgroup><col><col><col></colgroup>
+          <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">理论</th><th scope="col" role="columnheader">在图上怎么检验</th><th scope="col" role="columnheader">可配套的数据</th></tr></thead>
+          <tbody role="rowgroup" id="theory-body"></tbody>
+        </table>
+        <p class="empty" id="theory-empty" hidden>没有匹配的理论。试试其他关键词。</p>
+      </div>
+    </section>
+    <section class="section" id="datasets" aria-labelledby="dataset-title">
+      <div class="section-top">
+        <div><h2 class="section-title" id="dataset-title">已有数据集</h2><p>图谱可直接取边，标注集适合做机制核验，语料可用来抽取新边。</p></div>
+        <div class="section-actions"><div class="selector"><select id="layer" aria-label="筛选数据集知识层级"><option value="">全部知识层</option></select></div><span class="count" id="dataset-count" role="status"></span></div>
+      </div>
+      <div class="frame">
+        <table class="data" role="table" aria-labelledby="dataset-title">
+          <colgroup><col><col><col><col></colgroup>
+          <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">数据集与下载</th><th scope="col" role="columnheader">知识层</th><th scope="col" role="columnheader">已有的节点或边</th><th scope="col" role="columnheader">范围与使用边界</th></tr></thead>
+          <tbody role="rowgroup" id="dataset-body"></tbody>
+        </table>
+        <p class="empty" id="dataset-empty" hidden>没有匹配的数据集。试试切换知识层或清除关键词。</p>
+      </div>
+    </section>
+    <noscript>请启用 JavaScript 查看和筛选两张表。</noscript>
+  </main>
+  <script id="catalog" type="application/json">{"theories":[{"id":"t-network-agenda","name":"网络议程设置","meta":"郭蕾 · Network Agenda Setting","source":"https://doi.org/10.1080/08838151.2012.732148","test":"两篇文献在同一份参考文献中出现，就连一条共引边。比较固定社群的时序共引图，检验在扣除两篇文献各自热度后，甲社群先出现的组合是否在乙社群随后增强。","datasets":["openalex","unarxive","cskg","obms"]},{"id":"t-two-step","name":"两级传播与意见领袖","meta":"Katz · Two-Step Flow","source":"https://doi.org/10.1086/266687","test":"找出 C 引 B、B 引 A 的带时间两跳路径，比较综述、桥接作者和早期应用在跨社群路径上的出现率。用关系标签或原文确认两条边是否讨论同一方法或主张。 这条路径提供中介线索。","datasets":["intern-atlas","scholar-kg","scicite"]},{"id":"t-diffusion","name":"创新扩散","meta":"Rogers · Diffusion of Innovations","source":"https://www.simonandschuster.com/books/Diffusion-of-Innovations-5th-Edition/Everett-M-Rogers/9780743222099","test":"用论文与方法之间的 uses、extends 等关系定位团队首次采用，比较扩散时滞和先后进入的社群。首次普通引用与首次实际使用分别统计。","datasets":["intern-atlas","scholar-kg","pwc"]},{"id":"t-niche","name":"媒介生态位理论","meta":"Dimmick 与 Rothenbuhler · Theory of the Niche","source":"https://doi.org/10.1111/j.1460-2466.1984.tb02988.x","test":"在同一任务内，按只用旧方法、只用新方法、两者都用和两者均无分组。检验新方法出现后，旧方法在全部候选论文中的采用率是下降、持平还是上升。","datasets":["intern-atlas","pwc","cskg"]},{"id":"t-structure","name":"复杂传播与结构多样性","meta":"Centola 与 Macy · Complex Contagion","source":"https://doi.org/10.1086/521848","test":"固定早期引用或采用总量，比较来源覆盖多个独立社群的论文或方法，下一期是否更容易进入新社群。如需估计接触阈值，要另有作者的接触数据。","datasets":["openalex","intern-atlas"]},{"id":"t-framing","name":"框架理论","meta":"Entman · Framing","source":"https://doi.org/10.1111/j.1460-2466.1993.tb01304.x","test":"沿原文、中介、后续引用对齐同一主张，编码问题定义、适用条件与评价标准，检查哪些内容在跨社群转述时被保留或改变。证据标注可用于核验。","datasets":["unarxive","sciclaim","scifact","score"]},{"id":"t-gatekeeping","name":"把关理论","meta":"White · Gatekeeping","source":"https://doi.org/10.1177/107769905002700403","test":"预先重建某篇综述或专题当时可选的文献集合，比较入选与同题未入选研究的后续被引或共引位置。参考文献、时间和候选集合缺一不可。","datasets":["openalex","unarxive","s2orc"]}],"datasets":[{"id":"intern-atlas","name":"Intern-Atlas","format":"可下载图谱 · Parquet","layer":"方法谱系","contents":"论文、论文—方法、论文间有类型的演化边、方法关系四张表。可取 uses、extends、improves、replaces、adapts 等标签。","scope":"固定复现快照有约 414 万条论文演化边。含完整论文和仅由引用识别的节点。关系由模型抽取，跨期比较需核查覆盖和首发时间。","tags":"Intern Atlas AI 机器学习 强谱系 谱系演化 post 2023","links":[{"label":"固定快照","url":"https://huggingface.co/datasets/OpenRaiser/Intern-Atlas/tree/6859af5681045d9fb595f86f3cc5c004fbaa2271"},{"label":"论文","url":"https://arxiv.org/abs/2604.28158"}]},{"id":"scholar-kg","name":"Scholar-kg","format":"已发布图谱 · 下载需登录并接受条款","layer":"方法谱系","contents":"论文到任务、方法、数据集和指标的结构化抽取。包含有语义类型的引用关系、正文证据和实体关系三元组。","scope":"官方数据卡报告约 100 万篇论文，未给出清晰的逐年覆盖。可补充方法和引用功能分析，时间研究须先盘点文件。","tags":"Scholar KG semantic methods task metric methods 学术知识图谱","links":[{"label":"Hugging Face 数据","url":"https://huggingface.co/datasets/InternScience/Scholar-kg"}]},{"id":"openalex","name":"OpenAlex","format":"可下载引文图 · 快照 / API","layer":"论文引文","contents":"论文、发表日期、参考文献、作者、机构、来源与主题。可直接构建有向引文图、分期共引图，以及作者和机构层聚合图。","scope":"跨学科持续更新，可做 2023 前后和 2026 短窗比较。参考文献仅含匹配成功的条目，关系语义需另行获取。","tags":"Open Alex OA 参考文献 论文引用 网络议程设置 AutoResearch ChatGPT","links":[{"label":"快照下载","url":"https://help.openalex.org/access/snapshot/"},{"label":"引文字段","url":"https://help.openalex.org/data/works/citations/"}]},{"id":"unarxive","name":"unarXive 2024","shortName":"unarXive","format":"可下载语料＋引文图 · JSONL","layer":"论文引文","contents":"约 228 万篇 arXiv 文档，包含元数据、分节全文、文内引文与引文网络。可补正文和被共同引用的语境。","scope":"1991–2024 年，适合 ChatGPT 前后对照。数据止于 2024 年；2026 年研究需接续更新来源。全包约 105 GB，可先用预览文件。","tags":"unarXive unarxiv arxiv UTC 结构化全文 年份","links":[{"label":"数据与预览","url":"https://zenodo.org/records/17431595"},{"label":"论文","url":"https://aclanthology.org/2026.lrec-1.556/"}]},{"id":"s2orc","name":"S2ORC","format":"可下载语料 · 数据集 API","layer":"论文引文","contents":"机器可读全文；正文段落、文内引文位置和参考文献条目可用于分析引文语境。论文日期和外部 ID 可与 S2AG 关联。","scope":"需按数据集 API 的访问方式获取，批量下载需 API 密钥。覆盖依发布版本和可解析全文而变，使用前先核对目标年份和期刊。","tags":"Semantic Scholar Open Research Corpus 结构化语料 API S2AG","links":[{"label":"数据说明","url":"https://github.com/allenai/s2orc"},{"label":"数据集 API","url":"https://api.semanticscholar.org/api-docs/datasets"}]},{"id":"scicite","name":"SciCite","format":"可下载引用功能标注集 · Parquet","layer":"论文引文","contents":"引文句、施引与被引论文 ID，以及背景、方法、结果三类引用功能标签。","scope":"约 1.1 万条标注引文语境，可核验引文是否属于方法用途。若用于分期或找完整的两跳路径，需补接发表日期和完整引文图。","tags":"SciCite citation intent 背景 方法 结果","links":[{"label":"数据下载","url":"https://huggingface.co/datasets/allenai/scicite"},{"label":"数据论文","url":"https://aclanthology.org/N19-1361/"}]},{"id":"cskg","name":"CS-KG 2.0","format":"可下载知识图谱 · CSV / RDF","layer":"理论与概念","contents":"计算机科学的任务、方法、材料、指标和其他概念，含语义关系、原论文来源、年份与时间观测。","scope":"从 2010–2022 年约 1,450 万篇计算机科学论文自动抽取。适合历史概念网络基线；研究 2023 年以来变化需补新数据。","tags":"CSKG Computer Science Knowledge Graph 方法 实体 时间 序列","links":[{"label":"Zenodo 下载","url":"https://zenodo.org/records/14167682"},{"label":"数据论文","url":"https://doi.org/10.1038/s41597-025-05200-8"}]},{"id":"obms","name":"Behaviour Change Theory Database","shortName":"OBMS 理论库","format":"可下载理论结构 · CSV","layer":"理论与概念","contents":"76 种行为改变理论，记录构念、构念之间的关系、注释与来源文献。可以比较理论的构念组合和结构重叠。","scope":"限于行为科学的人工整理数据。比较理论组合何时进入其他领域，需要自行连接来源论文和后续引文。","tags":"OBMS theory database 行为改变 理论 结构 三元组","links":[{"label":"理论库","url":"https://theory-database.hbcptools.org/"},{"label":"OSF 数据","url":"https://doi.org/10.17605/OSF.IO/4DVPE"}]},{"id":"sciclaim","name":"SciClaim","format":"可下载标注集 · JSON","layer":"科学主张","contents":"主张内部的细粒度图，记录实验变量、因果或比较关系、限定条件与证据。","scope":"来自社会行为科学、PubMed 与 CORD-19。适合标注和抽取校准；跨论文关系须将主张连接回带论文 ID 的引文数据。","tags":"SciClaim 实证证据 claim experiments 标注框架","links":[{"label":"数据与代码","url":"https://github.com/siftech/SciClaim"}]},{"id":"scifact","name":"SciFact","format":"可下载标注集 · JSONL","layer":"科学主张","contents":"科学主张到文献摘要的支持与反驳标签，并标出摘要中的证据句。","scope":"以生物医学科学主张为主，适合校验主张—证据关系。文献证据与主张的关联来自核验任务，不能直接作为真实引文时序。","tags":"SciFact claim evidence 实证 evidence 支持 反驳","links":[{"label":"数据与代码","url":"https://github.com/allenai/scifact"},{"label":"论文","url":"https://aclanthology.org/2020.emnlp-main.609/"}]},{"id":"pwc","name":"Papers with Code · Evaluation Tables","shortName":"Papers with Code","format":"可下载实证结果表 · Parquet","layer":"实证证据","contents":"任务、数据集、指标、方法或论文及其成绩。适合同任务对照新旧方法，并结合引文图比较评测中的使用与学术引用。","scope":"2025 年 7 月存档，样本以已被收录的榜单为主。引用边和稳定年份需要按论文标识与引文图连接。","tags":"PWC Papers with Code 机器学习 分数 结果 指标 score 经验发现","links":[{"label":"评测表下载","url":"https://huggingface.co/datasets/pwc-archive/evaluation-tables"},{"label":"项目存档说明","url":"https://github.com/paperswithcode/paperswithcode-data"}]},{"id":"score","name":"SCORE Replicability","shortName":"SCORE","format":"可下载复现数据 · OSF","layer":"实证证据","contents":"连接原研究中被选定的主张与独立复现，提供原始与复现实验的效应信息及复现判断。","scope":"面向社会与行为科学的抽样主张。可用来核验后续论文传播的是原发现、复现结果还是适用边界，后续引文须另接。","tags":"SCORE replication 复现 实证发现 效应 社会科学","links":[{"label":"数据发布入口","url":"https://www.cos.io/score-evidence"},{"label":"OSF 项目","url":"https://osf.io/g5sny/"}]},{"id":"evidence-inference","name":"Evidence Inference 2.0","shortName":"Evidence Inference","format":"可下载实证标注集","layer":"实证证据","contents":"临床试验全文、干预—对照—结局、比较结果方向和支持证据段，可检查转述是否保留实证限定。","scope":"临床试验领域的结果抽取基准。若研究证据如何被后续论文使用，需用论文标识补接时序和引文。","tags":"Evidence Inference PICO trials 医学 试验 finding scientific evidence","links":[{"label":"数据与代码","url":"https://github.com/jayded/evidence-inference"},{"label":"2.0 论文","url":"https://aclanthology.org/2020.bionlp-1.13/"}]}]}</script>
+  <script>
+    const {theories, datasets} = JSON.parse(document.querySelector("#catalog").textContent);
+    const search = document.querySelector("#search");
+    const layer = document.querySelector("#layer");
+    const reset = document.querySelector("#reset");
+    const make = (tag, text, className) => {
+      const element = document.createElement(tag);
+      if (text) element.textContent = text;
+      if (className) element.className = className;
+      return element;
+    };
+    const withRole = (tag, role, text, className) => {
+      const element = make(tag, text, className);
+      element.setAttribute("role", role);
+      return element;
+    };
+    const link = (label, url, className) => {
+      const anchor = make("a", label, className);
+      anchor.href = url;
+      return anchor;
+    };
+    const cell = (label, text) => {
+      const td = withRole("td", "cell", text);
+      td.dataset.label = label;
+      return td;
+    };
+    const rowName = (main, meta, url) => {
+      const th = withRole("th", "rowheader");
+      const title = make("span", "", "row-name");
+      th.scope = "row";
+      title.append(url ? link(main, url) : document.createTextNode(main));
+      th.append(title, make("span", meta, "meta"));
+      return th;
+    };
+    const matches = (entry, query) => query.every(term => entry.includes(term));
+    const names = new Map(datasets.map(({id, name, shortName}) => [id, shortName || name]));
+    const theoryRows = theories.map(theory => {
+      const row = withRole("tr", "row");
+      row.id = theory.id;
+      const pairs = cell("可配套的数据");
+      const group = make("div", "", "pairs");
+      theory.datasets.forEach(id => {
+        const anchor = link(names.get(id), "#" + id, "pair");
+        anchor.addEventListener("click", () => {
+          search.value = "";
+          layer.value = "";
+          filter();
+          requestAnimationFrame(() => document.getElementById(id).focus({preventScroll: true}));
+        });
+        group.append(anchor);
+      });
+      pairs.append(group);
+      row.append(rowName(theory.name, theory.meta, theory.source), cell("在图上怎么检验", theory.test), pairs);
+      return {row, search: [theory.name, theory.meta, theory.test, ...theory.datasets.map(id => names.get(id))].join(" ").toLowerCase()};
+    });
+    const datasetRows = datasets.map(dataset => {
+      const row = withRole("tr", "row");
+      row.id = dataset.id;
+      row.tabIndex = -1;
+      const title = rowName(dataset.name, dataset.format);
+      const platform = make("div", "", "platform");
+      for (const source of dataset.links) platform.append(link(source.label, source.url));
+      title.append(platform);
+      const layerCell = cell("知识层");
+      const chip = make("span", dataset.layer, "badge");
+      chip.dataset.layer = dataset.layer;
+      layerCell.append(chip);
+      row.append(title, layerCell, cell("已有的节点或边", dataset.contents), cell("范围与使用边界", dataset.scope));
+      return {row, layer: dataset.layer, search: [dataset.name, dataset.shortName, dataset.layer, dataset.format, dataset.contents, dataset.scope, dataset.tags].join(" ").toLowerCase()};
+    });
+    const layerOrder = ["论文引文", "方法谱系", "理论与概念", "科学主张", "实证证据"];
+    layerOrder.filter(value => datasets.some(dataset => dataset.layer === value)).forEach(value => layer.add(new Option(value, value)));
+    document.querySelector("#theory-body").append(...theoryRows.map(entry => entry.row));
+    document.querySelector("#dataset-body").append(...datasetRows.map(entry => entry.row));
+    function setVisibility(rows, name, predicate) {
+      let count = 0;
+      for (const entry of rows) {
+        const show = predicate(entry);
+        entry.row.hidden = !show;
+        if (show) count++;
+      }
+      document.querySelector("#" + name + "-count").textContent = count + " 项";
+      document.querySelector("#" + name + "-empty").hidden = count !== 0;
+    }
+    function filter() {
+      const raw = search.value.trim().toLowerCase();
+      const query = raw ? raw.split(/\s+/) : [];
+      reset.hidden = !search.value;
+      setVisibility(theoryRows, "theory", entry => matches(entry.search, query));
+      setVisibility(datasetRows, "dataset", entry => matches(entry.search, query) && (!layer.value || entry.layer === layer.value));
+    }
+    search.addEventListener("input", filter);
+    layer.addEventListener("change", filter);
+    reset.addEventListener("click", () => {
+      search.value = "";
+      filter();
+      search.focus();
+    });
+    filter();
+    if (location.hash) {
+      const destination = document.getElementById(location.hash.slice(1));
+      if (destination?.matches("tr")) requestAnimationFrame(() => destination.scrollIntoView({block: "start"}));
+    }
+  </script>
+</body>
+</html>
