@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>两级传播与意见领袖</title>
+
+<meta name="generator" content="ARIS render-html (academic, v1)">
+<meta name="aris:source-path" content="two-step-flow-measures.md">
+<meta name="aris:source-sha256" content="b75fcb79451bcb12e67435fd4d11967d1824ec0321596881bade018f6c595d68">
+<meta name="aris:generated-at" content="2026-11-23 07:55 UTC">
+
+<!-- offline mode: MathJax + highlight.js skipped; math and code blocks render as plain text -->
+
+<style>
+:root {
+  --bg: #fdfcf7;
+  --bg-soft: #f4f1ea;
+  --bg-code: #f8f5ec;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #6b6b6b;
+  --primary: #1a4a8c;
+  --primary-soft: #2d6cb8;
+  --accent: #b8390e;
+  --warn: #b45309;
+  --warn-bg: #fef3c7;
+  --info-bg: #dbeafe;
+  --good-bg: #d1fae5;
+  --good: #065f46;
+  --bad-bg: #fee2e2;
+  --bad: #991b1b;
+  --border: #d6d0c0;
+  --border-soft: #e8e3d5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Source Serif Pro", "Source Serif 4", "Crimson Pro", "Georgia", "Songti SC", "STSong", serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  padding: 40px 32px;
+}
+
+nav.toc {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  font-size: 13px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border-right: 1px solid var(--border-soft);
+  padding-right: 16px;
+}
+nav.toc h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc ol li { margin: 5px 0; counter-increment: toc; }
+nav.toc ol li::before { content: counter(toc) ". "; color: var(--ink-muted); margin-right: 4px; }
+nav.toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+nav.toc a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+nav.toc ul { list-style: none; padding-left: 14px; margin: 3px 0; font-size: 12px; }
+nav.toc ul li::before { content: "→ "; color: var(--border); }
+
+main { min-width: 0; }
+
+header.hero {
+  border-bottom: 3px double var(--primary);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+header.hero .eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+header.hero h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+header.hero .subtitle {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+  font-style: italic;
+}
+header.hero .byline {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+header.hero .byline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+header.hero .meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border-soft);
+  padding-top: 14px;
+}
+header.hero .meta span strong { color: var(--ink-soft); }
+header.hero .meta code {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 11px;
+  background: var(--bg-soft);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+}
+
+h2 {
+  font-size: 24px;
+  margin: 44px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  font-weight: 700;
+}
+h2 .num { color: var(--primary); font-weight: 600; margin-right: 8px; }
+h3 { font-size: 19px; margin: 28px 0 10px; color: var(--primary); font-weight: 600; }
+h4 { font-size: 16px; margin: 20px 0 8px; color: var(--ink); font-weight: 600; }
+
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 10px 0; }
+ul li, ol li { margin: 4px 0; }
+ul li::marker { color: var(--primary); }
+
+strong { color: var(--accent); font-weight: 600; }
+em { color: var(--ink-soft); }
+
+a { color: var(--primary); }
+a:hover { color: var(--accent); }
+
+code:not(.hljs) {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.86em;
+  background: var(--bg-code);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+}
+
+pre {
+  background: #fafaf6;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  padding: 0;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 14px 0;
+}
+pre code, pre code.hljs {
+  background: transparent !important;
+  display: block;
+  padding: 14px 18px !important;
+  font-size: 13px;
+  line-height: 1.55;
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace;
+  color: var(--ink);
+}
+pre.diagram {
+  background: #f9f6ed;
+  border-left: 4px solid var(--accent);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  font-size: 15px;
+}
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.callout-info { background: var(--info-bg); border-left-color: var(--primary); }
+.callout-info .callout-title { color: var(--primary); }
+.callout-warn { background: var(--warn-bg); border-left-color: var(--warn); }
+.callout-warn .callout-title { color: var(--warn); }
+.callout-good { background: var(--good-bg); border-left-color: var(--good); }
+.callout-good .callout-title { color: var(--good); }
+.callout-bad { background: var(--bad-bg); border-left-color: var(--bad); }
+.callout-bad .callout-title { color: var(--bad); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+thead { background: var(--primary); color: white; }
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+th { font-weight: 600; font-size: 13px; letter-spacing: 0.02em; }
+tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+
+details.qa, details {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 0;
+}
+details summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary);
+  list-style: none;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸ ";
+  margin-right: 4px;
+  display: inline-block;
+  transition: transform 0.15s;
+}
+details[open] summary::before { transform: rotate(90deg); }
+details[open] summary { border-bottom: 1px solid var(--border-soft); }
+details > :not(summary) { padding: 10px 14px; }
+details p:first-of-type { margin-top: 8px; }
+
+mjx-container[display="true"] { margin: 12px 0 !important; }
+
+footer.aris-footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+footer.aris-footer a { color: var(--ink-muted); border-bottom: 1px dotted var(--border); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 20px; padding: 20px 16px; }
+  nav.toc {
+    position: static;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding-right: 0;
+    padding-bottom: 14px;
+  }
+  header.hero h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+}
+@media print {
+  nav.toc { display: none; }
+  .layout { grid-template-columns: 1fr; padding: 0; }
+  body { background: white; }
+  header.hero { border-bottom-color: var(--ink); }
+}
+
+:root {
+  --bg: #f7f8fb; --bg-soft: #f8f9fc; --bg-code: #ebedf5;
+  --ink: #1b2440; --ink-soft: #394465; --ink-muted: #56617d;
+  --primary: #303e76; --primary-soft: #475c9a; --accent: #5a3eb1;
+  --border: #cfd6e7; --border-soft: #dce2ed;
+}
+body {font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; line-height:1.67}
+.layout {max-width:1380px; grid-template-columns:210px minmax(0,1fr); gap:38px; padding:46px 32px 70px}
+header.hero {border-bottom:2px solid var(--primary); padding:0 0 22px; margin-bottom:22px}
+header.hero h1 {font:700 clamp(29px,5vw,43px)/1.2 "PingFang SC","Microsoft YaHei",system-ui,sans-serif; letter-spacing:-.025em}
+header.hero .subtitle {color:var(--ink-soft)}
+nav.toc {top:32px; padding:10px 12px 12px 0}
+nav.toc h3 {color:var(--primary); font-size:14px}
+nav.toc ol li::before {content:none}
+nav.toc a {display:inline-block; padding:4px 0; font-weight:600}
+h2 {scroll-margin-top:24px; margin:46px 0 14px; color:var(--primary); font-size:25px}
+p {max-width:77ch}
+.table-scroll {max-width:100%; overflow:auto; border:1px solid var(--border); border-radius:10px; margin:15px 0 21px; background:white}
+.table-scroll:focus-visible {outline:2px solid var(--accent); outline-offset:3px}
+table {border:0; margin:0; min-width:760px; background:white; border-radius:0}
+th, td {padding:12px 14px; line-height:1.58; text-align:left; overflow-wrap:normal}
+th {white-space:nowrap; font-size:13px}
+td {font-size:14px}
+td:first-child {width:19%; color:var(--ink)}
+td:last-child {width:23%}
+td a {overflow-wrap:anywhere}
+a:focus-visible {outline:2px solid var(--accent); outline-offset:2px}
+footer.aris-footer {font-size:12px}
+footer details {max-width:450px; padding:0 12px}
+@media (max-width: 900px) {
+  .layout {grid-template-columns:1fr; gap:20px; padding:24px 18px 45px}
+  nav.toc {padding:0 0 13px}
+  nav.toc ol {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:8px}
+}
+
+@media screen and (max-width: 700px) {
+  .table-scroll {overflow:visible}
+  table, thead, tbody, tr, th, td {display:block; width:100%; min-width:0}
+  thead {position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap}
+  tbody tr {padding:12px 14px; border-bottom:1px solid var(--border)}
+  tbody tr:last-child {border-bottom:0}
+  td, td:first-child, td:last-child {width:auto; padding:5px 0; border:0; overflow-wrap:anywhere}
+  td::before {content:attr(data-label); display:block; margin:0 0 2px; color:var(--ink-muted); font-size:11px; font-weight:700}
+  td:last-child {font-size:13px}
+}
+@media (max-width: 420px) {
+  .layout {padding-inline:14px}
+  nav.toc ol {grid-template-columns:1fr}
+  h2 {font-size:21px}
+}
+@media (prefers-reduced-motion: reduce) {html {scroll-behavior:auto}}
+@media print {
+  .layout {grid-template-columns:1fr; padding:0; max-width:none}
+  table {min-width:0}
+  .table-scroll {overflow:visible}
+  tr {break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc">
+  <h3>四张表</h3>
+  <ol>
+<li><a href="#表一-传播学文献实际测量了什么">表一　传播学文献实际测量了什么</a>
+</li>
+<li><a href="#表二-哪些测量量可以随时间追踪">表二　哪些测量量可以随时间追踪</a>
+</li>
+<li><a href="#表三-围绕技术发布节点可以比较什么">表三　围绕技术发布节点，可以比较什么</a>
+</li>
+<li><a href="#表四-intern-atlas-能对哪些节点做哪些分析">表四　Intern-Atlas 能对哪些节点做哪些分析</a>
+</li>
+</ol>
+</nav>
+
+<main>
+<header class="hero">
+  
+  <h1>两级传播与意见领袖</h1>
+  <p class="subtitle">文献中的测量量、事件比较与 Intern-Atlas 试算</p>
+  
+</header>
+
+<p>两级传播把问题拆成信息由谁接收、经谁传给同辈。意见领袖研究还要辨认谁在特定议题和社群内受到他人求助、关注或信任。下面先列原研究实际使用的测量量，再写时间比较设计，最后核对 Intern-Atlas 的覆盖和试算。 <a href="https://doi.org/10.1086/266687">Katz，1957</a></p>
+<h2 id="表一-传播学文献实际测量了什么">表一　传播学文献实际测量了什么</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表"><table><thead><tr><th scope="col">理论问题</th><th scope="col">可测量量</th><th scope="col">原文的操作定义与观测单位</th><th scope="col">原始研究与定位</th></tr></thead><tbody><tr><td data-label="理论问题">谁自认在传递意见？</td><td data-label="可测量量"><strong>说服与被求助</strong></td><td data-label="原文的操作定义与观测单位">个人回答两道是非题，分别问近期是否试图让他人接受自己的政治观点、是否有人向自己征询政治意见。经典研究也按人比较报纸、广播和杂志接触。</td><td data-label="原始研究与定位"><a href="https://repository.upenn.edu/server/api/core/bitstreams/0071f2b9-cd77-4bd3-a5ce-8a2a29ea1d4e/content">Katz，1957，Public Opinion Quarterly，选举研究与媒介接触</a></td></tr><tr><td data-label="理论问题">同一议题中，谁向谁提供意见？</td><td data-label="可测量量"><strong>逐关系的建议方向与角色计数</strong></td><td data-label="原文的操作定义与观测单位">每人提名最常讨论所选议题的 3 人。逐一评价自己主要给建议还是接受建议，1–2 分为给建议，3 分方向均衡，4–5 分为接受建议。每个人各类关系数为 0–3。</td><td data-label="原始研究与定位"><a href="https://pure.mpg.de/rest/items/item_2476694/component/file_2476693/content">Schäfer 与 Taddicken，2015，International Journal of Communication，Measures</a></td></tr><tr><td data-label="理论问题">科学议题中的意见领导程度有多高？</td><td data-label="可测量量"><strong>议题专属意见领导量表</strong></td><td data-label="原文的操作定义与观测单位">科学讨论频率、讨论中提供的信息量、过去半年告知多少人、被问意见的可能性、谁主导讨论、作为科学顾问被请教的频率。六个 1–5 分问项取均值。科普信息的传统媒体与社交媒体使用频率另行测量。</td><td data-label="原始研究与定位"><a href="https://journals.sagepub.com/doi/10.1177/02673231251340802">Taddicken 与 Reif，2025，European Journal of Communication，表 2 与 Measures</a></td></tr><tr><td data-label="理论问题">谁把外部材料带入社群并引发讨论？</td><td data-label="可测量量"><strong>回复份额、独立回应者份额、发帖成功率</strong></td><td data-label="原文的操作定义与观测单位">对每位作者在每个论坛，分别算其主题帖收到的回复占论坛全部回复的比例、在其主题下发言的人占论坛参与者的比例、至少获得两位其他作者回应的主题帖占该作者全部主题帖的比例。另以链接或明确署名编码外部信息来源。</td><td data-label="原始研究与定位"><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1083-6101.2009.01470.x">Himelboim 等，2009，Journal of Computer-Mediated Communication，Methods</a></td></tr><tr><td data-label="理论问题">哪些组织的内容被同业引用？</td><td data-label="可测量量"><strong>同业提及次数与份额</strong></td><td data-label="原文的操作定义与观测单位">对核查报道手工标注来源及链接用途。区分用其他核查作为验证证据和把同一主张的同行核查列为延伸阅读。按引用方国家计算各被提及机构占该国全部同业提及的份额。</td><td data-label="原始研究与定位"><a href="https://www.cogitatiopress.com/mediaandcommunication/article/view/9389">Cazzamatta，2025，Media and Communication，§3.3、§4.2 与图 3</a></td></tr><tr><td data-label="理论问题">同一内容经几步传开？</td><td data-label="可测量量"><strong>一跳和两跳转发占比</strong></td><td data-label="原文的操作定义与观测单位">按微博流行词的扩散阶段，计算各转发步数的用户占比，重点比较一跳和两跳。另用粉丝数和认证状态描述早期参与者构成。</td><td data-label="原始研究与定位"><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jcc4.12145">Zhang 等，2016，Journal of Computer-Mediated Communication，图 9</a></td></tr><tr><td data-label="理论问题">媒体内容有多少由中介带给普通用户？</td><td data-label="可测量量"><strong>间接接收比例</strong></td><td data-label="原文的操作定义与观测单位">对每位至少收到一条媒体首发链接的采样用户，以从非媒体好友收到的这些链接数为分子，以其收到的媒体首发链接数为分母，再对用户比例取均值。原研究把显式转发与未标注来源的再次发布都计入可能的中介途径。</td><td data-label="原始研究与定位"><a href="https://www.cs.cornell.edu/~sw475/publications/wu_www2011.pdf">Wu 等，2011，ACM WWW，§4.1 与图 5</a></td></tr><tr><td data-label="理论问题">网络中是否常出现中介或闭合结构？</td><td data-label="可测量量"><strong>有向转发网络的结构项</strong></td><td data-label="原文的操作定义与观测单位">转发者指向被转发者。固定总边数，用指数随机图模型估计星形、交替三角形、交替两路径等网络项。观测单位是转发关系网络。</td><td data-label="原始研究与定位"><a href="https://doi.org/10.1111/hcre.12023">Choi，2014，Human Communication Research，图 3 与表 1</a></td></tr><tr><td data-label="理论问题">经熟人推荐后，接收者的判断有什么变化？</td><td data-label="可测量量"><strong>来源信任与继续搜寻意向</strong></td><td data-label="原文的操作定义与观测单位">随机展示同一新闻带有熟人推荐或仅显示媒体来源。信任用 5 个问项，继续阅读或主动寻找同一媒体新闻的意向用 2 个问项。另由接收者评价推荐者是否了解时事、是否诚实。</td><td data-label="原始研究与定位"><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jcc4.12127">Turcotte 等，2015，Journal of Computer-Mediated Communication，Dependent Variable Measures</a></td></tr><tr><td data-label="理论问题">采用之前，个人有多少同辈已经采用？</td><td data-label="可测量量"><strong>首次采用时间、关系提名数、网络采用阈值</strong></td><td data-label="原文的操作定义与观测单位">以处方记录里的首次开药月份记录首次采用并用提名识别咨询、讨论和好友关系。Valente 分开计算收到的关系提名数，以及个人首次采用时，其直接关系对象中已采用者所占比例。</td><td data-label="原始研究与定位"><a href="https://doi.org/10.2307/2785979">Coleman 等，1957，Sociometry，Methods</a> · <a href="https://www.bebr.ufl.edu/sites/default/files/Social%20Network%20Thresholds%20in%20the%20Diffusion%20of%20Innovations.pdf">Valente，1996，Social Networks，§2、表 4</a></td></tr></tbody></table></div>
+<p>Jungnickel 对 410 篇研究的系统编码还记录了数字行为指标的实际用法，包括联系人和网络位置、活动、回应，以及链接、转发或模仿。 <a href="https://ijoc.org/index.php/ijoc/article/download/8534/2387">Jungnickel，2018，International Journal of Communication，表 6</a></p>
+<h2 id="表二-哪些测量量可以随时间追踪">表二　哪些测量量可以随时间追踪</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表"><table><thead><tr><th scope="col">可追踪的量</th><th scope="col">原研究怎样纳入时间</th><th scope="col">要保留的时间戳与分母</th></tr></thead><tbody><tr><td data-label="可追踪的量"><strong>传播深度与各步占比</strong></td><td data-label="原研究怎样纳入时间">按同一内容的早期扩散阶段比较一跳、两跳用户占比。Zhang 等用同一批流行词在两次扩散中的相对阶段做比较。 <a href="https://doi.org/10.1111/jcc4.12145">Zhang 等，图 9</a></td><td data-label="要保留的时间戳与分母">内容标识、每次转发时点及父帖。同一阶段的去重用户构成分母。</td></tr><tr><td data-label="可追踪的量"><strong>中介触达与响应份额</strong></td><td data-label="原研究怎样纳入时间">用带时间戳的帖子和回复，逐月识别同时达到三项门槛的作者，并检查同一作者是否在多个自然月达到门槛。 <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1083-6101.2009.01470.x">Himelboim 等，表 1 与 Methods</a></td><td data-label="要保留的时间戳与分母">发帖、回复及作者标识。各窗口使用对应社群的全部回复、全部参与者或作者全部主题帖。</td></tr><tr><td data-label="可追踪的量"><strong>意见领导得分</strong></td><td data-label="原研究怎样纳入时间">同一套自评量表能在调查波次间重复。Shah 与 Scheufele 在两波面板中重复测量同一受访者的自评意见领导和参与行为。 <a href="https://dshah.sjmc.wisc.edu/files/2017/01/PC2006.pdf">Shah 与 Scheufele，2006，Political Communication，Civic Life Panel Measurement</a></td><td data-label="要保留的时间戳与分母">调查波次、相同问项与个体标识。区分同一人变化和各波样本构成变化。</td></tr><tr><td data-label="可追踪的量"><strong>首次采用与累计采用率</strong></td><td data-label="原研究怎样纳入时间">把每位对象的首次采用定位到月份，按网络关系分组画累积采用曲线。 <a href="https://doi.org/10.2307/2785979">Coleman 等，1957，图 2</a></td><td data-label="要保留的时间戳与分母">首次采用时间、观察起止及仍有机会首次采用的人群。</td></tr><tr><td data-label="可追踪的量"><strong>同辈采用暴露</strong></td><td data-label="原研究怎样纳入时间">对每个时点，计算个人直接关系中已采用者所占比例。个人首次采用时的暴露比例是其观测到的网络采用阈值。 <a href="https://www.bebr.ufl.edu/sites/default/files/Social%20Network%20Thresholds%20in%20the%20Diffusion%20of%20Innovations.pdf">Valente，1996，§2 与图 1</a></td><td data-label="要保留的时间戳与分母">关系对象的采用时点、观测的关系集合。分母包含仍未采用的直接关系对象。</td></tr><tr><td data-label="可追踪的量"><strong>来源信任与搜寻意向</strong></td><td data-label="原研究怎样纳入时间">原文用一次实验的后测比较推荐条件。如果研究日历时间趋势，需要在不同时间点重复同一问卷或实验。 <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jcc4.12127">Turcotte 等，2015，Methods</a></td><td data-label="要保留的时间戳与分母">刺激、实验条件、每次测量的受访者和同一评分量表。</td></tr></tbody></table></div>
+<h2 id="表三-围绕技术发布节点可以比较什么">表三　围绕技术发布节点，可以比较什么</h2>
+<p>以公开日定义事件时点。以 <strong>ChatGPT（2022-11-30）</strong> 和 <strong>The AI Scientist（2024-08-13）</strong> 为例，各取等长的前后窗口，采用同一入组规则和分母定义。以下是用文献测法设计的前后比较。理论允许传播结构随事件变化，具体方向要由观测判断。 <a href="https://openai.com/index/chatgpt/">OpenAI 发布公告</a> · <a href="https://sakana.ai/ai-scientist/">Sakana AI 发布公告</a></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表"><table><thead><tr><th scope="col">发布前后的问题</th><th scope="col">可比较的量</th><th scope="col">比较口径</th><th scope="col">测法来源</th></tr></thead><tbody><tr><td data-label="发布前后的问题"><strong>来源直达与中介传播的构成变了多少？</strong></td><td data-label="可比较的量">一跳、两跳和更长传播的比例，以及后窗减前窗的百分点差。</td><td data-label="比较口径">追踪两窗均可观察的同类内容单元，统一来源、路径判定和分母。允许直达与间接路径并存时，分别报告两者和重叠比例。</td><td data-label="测法来源"><a href="https://doi.org/10.1111/jcc4.12145">Zhang 等，一跳与两跳转发</a> · <a href="https://www.cs.cornell.edu/~sw475/publications/wu_www2011.pdf">Wu 等，间接接收比例</a></td></tr><tr><td data-label="发布前后的问题"><strong>引入外部内容的中介，在接收社群中的触达变了吗？</strong></td><td data-label="可比较的量">各社群内的回复份额、独立回应者份额和成功引发回应的比例。</td><td data-label="比较口径">在同一接收社群和议题下，按指标用该窗的社群参与者总数、回复总量或该作者的主题帖总数作分母。</td><td data-label="测法来源"><a href="https://doi.org/10.1111/j.1083-6101.2009.01470.x">Himelboim 等，论坛内三项比例</a></td></tr><tr><td data-label="发布前后的问题"><strong>较早采用的人与同辈接触后的采用模式变了吗？</strong></td><td data-label="可比较的量">首次采用时间分布、累计采用曲线、首次采用时同辈已采用比例。</td><td data-label="比较口径">用两窗均可观察的关系和采用记录，以可首次采用者为基础，按社群或暴露水平比较。</td><td data-label="测法来源"><a href="https://doi.org/10.2307/2785979">Coleman 等，处方时间和关系提名</a> · <a href="https://www.bebr.ufl.edu/sites/default/files/Social%20Network%20Thresholds%20in%20the%20Diffusion%20of%20Innovations.pdf">Valente，网络采用阈值</a></td></tr><tr><td data-label="发布前后的问题"><strong>发表意见的人或被求助的人发生变化了吗？</strong></td><td data-label="可比较的量">议题专属意见领导得分、给建议关系数、受建议关系数。</td><td data-label="比较口径">发布前后对同一议题重复同一量表或提名问项。个人变化用可配对的同一受访者计算。</td><td data-label="测法来源"><a href="https://pure.mpg.de/rest/items/item_2476694/component/file_2476693/content">Schäfer 与 Taddicken，关系级角色</a> · <a href="https://dshah.sjmc.wisc.edu/files/2017/01/PC2006.pdf">Shah 与 Scheufele，面板重复测量</a></td></tr></tbody></table></div>
+<p>同一个事件可以回答两类不同的问题。发布前后都存在的内容与关系适合做前后比较。只在发布后出现的新系统适合从首次公开开始追踪其后续扩散。若要估计发布本身造成的变化，还需要能够区分同期变化的对照或暴露信息。</p>
+<h2 id="表四-intern-atlas-能对哪些节点做哪些分析">表四　Intern-Atlas 能对哪些节点做哪些分析</h2>
+<p>当前试算在同一方法下选定原作 A、较早的中介论文 B 和下游采用论文 C，记录是否有合格的 C → B → A 引文结构。事件短窗使用可识别的首发 arXiv 月份，取发布前后各三个月，排除发布月，且按事件冻结中介候选池。两跳比例的单位是「方法 × 采用论文」，超额是实际比例减匹配期望。这个分母和匹配基线属于本项目试算口径。 <a href="https://arxiv.org/html/2604.28158v2">Intern-Atlas 原文</a></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="数据表"><table><thead><tr><th scope="col">节点或对照</th><th scope="col">实际数据与窗口</th><th scope="col">可分析的量与当前结果</th><th scope="col">证据范围</th></tr></thead><tbody><tr><td data-label="节点或对照"><strong>GPT-1 · 2018-06-11</strong></td><td data-label="实际数据与窗口">2018-03 至 05 对 2018-07 至 09。前窗 1,276、后窗 1,282 个方法 × 论文观测。</td><td data-label="可分析的量与当前结果"><strong>已计算。</strong> 两跳比例 <strong>17.87% → 18.17%</strong>，两跳超额 <strong>−0.07 → −0.03 个百分点</strong>。</td><td data-label="证据范围">两窗均接近匹配基线。样本为可定位 arXiv 月份的旧方法采用记录。 <a href="https://openai.com/index/language-unsupervised/">OpenAI 公告</a></td></tr><tr><td data-label="节点或对照"><strong>ChatGPT · 2022-11-30</strong></td><td data-label="实际数据与窗口">2022-08 至 10 对 2022-12 至 2023-02。前窗 1,673、后窗 1,494 个观测。</td><td data-label="可分析的量与当前结果"><strong>已计算。</strong> 两跳比例 <strong>13.39% → 11.51%</strong>，超额 <strong>+1.25 → +0.67 个百分点</strong>，超额变化 <strong>−0.58 个百分点</strong>。</td><td data-label="证据范围">覆盖使用较早已存在方法的论文。描述发布前后引文结构，没有观测每位作者是否使用 ChatGPT。</td></tr><tr><td data-label="节点或对照"><strong>ChatGPT 前后多年</strong></td><td data-label="实际数据与窗口">2019–2021 对 2023–2025。以 2022 为过渡年。</td><td data-label="可分析的量与当前结果"><strong>已计算。</strong> 方法年龄等权时，两跳超额 <strong>+0.38 → +0.63 个百分点</strong>。每个方法等权时为 <strong>−0.13 → +0.06</strong>。</td><td data-label="证据范围">两跳变化依赖窗口和加权。年度比较与短窗比较各有独立的样本定义。</td></tr><tr><td data-label="节点或对照"><strong>ChatGPT 前后多年，接收社群对照</strong></td><td data-label="实际数据与窗口">同一年度窗口，中介在 C 发表前三个自然年是否获接收社群引文。社群以 NLP、视觉和通用机器学习发表来源近似。</td><td data-label="可分析的量与当前结果"><strong>已计算。</strong> 既有社群触达超额 <strong>+19.70 → +6.32 个百分点</strong>。B 与 C 同发表社群的超额 <strong>+19.10 → −1.61</strong>。</td><td data-label="证据范围">前窗 399、后窗 555 个方法 × 采用论文观测。其中前窗 327 个来自 2019 年。这是论文层面的触达。</td></tr><tr><td data-label="节点或对照"><strong>The AI Scientist · 2024-08-13</strong></td><td data-label="实际数据与窗口">2024-05 至 07 对 2024-09 至 11。前窗 3,057、后窗 3,055 个观测。</td><td data-label="可分析的量与当前结果"><strong>已计算。</strong> 两跳比例 <strong>13.05% → 11.98%</strong>，超额 <strong>+0.76 → +0.52 个百分点</strong>。</td><td data-label="证据范围">可比较总体旧方法使用的路径。论文是否使用 The AI Scientist 需要单独界定。</td></tr><tr><td data-label="节点或对照"><strong>AutoResearch · 2026-03</strong></td><td data-label="实际数据与窗口">当前快照在 2026 年 4 月起没有可定位为该月首发的 arXiv 记录。</td><td data-label="可分析的量与当前结果"><strong>后窗缺失。</strong> 可以描述可见的发布前月份和覆盖边界。前后变化缺少后窗观测。</td><td data-label="证据范围">三月同时覆盖发布前后，无法用于这个前后月度比较。 <a href="https://github.com/karpathy/autoresearch">项目仓库</a></td></tr><tr><td data-label="节点或对照"><strong>适用于上述节点的补充问题</strong></td><td data-label="实际数据与窗口">首发 arXiv 月份或发表年、方法角色、引文方向和类型、venue。科学意见领导量表需要调查，作者关系需要稳定消歧。</td><td data-label="可分析的量与当前结果"><strong>可继续分析。</strong> 在覆盖充分的窗口可按领域和方法分组，细分「仅直引、仅两跳、两者都有、两者都无」，检查两条引文是否对应同一方法。</td><td data-label="证据范围">分组时报告各组分母、缺失率和快照边界。论文级代理和作者级实际行为对应不同的观测对象。</td></tr><tr><td data-label="节点或对照"><strong>任一已覆盖节点，社群内响应</strong></td><td data-label="实际数据与窗口">使用有向引文、年份和论文 venue。在两窗采用同一套社群规则。</td><td data-label="可分析的量与当前结果"><strong>可继续分析。</strong> 对各中介，以接收社群中引用它的论文数除以该社群样本论文数，比较中介触达与集中度。可单独编码引文是方法采用还是背景提及。</td><td data-label="证据范围">对应论坛的社群内响应份额。作者是否被请教及读到哪个来源仍需要正文、调查或更直接的记录。</td></tr><tr><td data-label="节点或对照"><strong>指定方法从首次公开开始的扩散</strong></td><td data-label="实际数据与窗口">先人工核对该方法的原作和同义标签，再用用途标签与首发日期定位后续论文。</td><td data-label="可分析的量与当前结果"><strong>可继续分析。</strong> 按月统计首次可见的采用论文和累计数量。团队级首次采用和同辈采用阈值需要消歧作者、独立取得既有关系，并纳入未采用者。</td><td data-label="证据范围">现有发布短窗使用旧方法的样本，尚未给出 ChatGPT 或 The AI Scientist 本体的采用曲线。</td></tr></tbody></table></div>
+<p>表四数值来自项目已有的 <code>event_month_sensitivity_matched.csv</code>、<code>age_standardized.csv</code>、<code>macro_methods.csv</code>、<code>target_local_matched.csv</code> 和 <code>arxiv_2026_coverage.csv</code>。这些结果记录的是技术发布前后的结构变化。</p>
+
+<footer class="aris-footer">研究整理 · <time datetime="2026-11-23 07:55 UTC">2026-11-23 07:55 UTC</time><br><details><summary>校验信息</summary><code>two-step-flow-measures.md</code> · <code>b75fcb79451b</code></details></footer>
+</main>
+
+</div>
+</body>
+</html>
